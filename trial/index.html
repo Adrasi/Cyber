@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1336, initial-scale=1.0"/>
+  <title>Scrollable Article UI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 1336px;
+      color: white;
+      overflow-y: auto;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .top-card {
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 1276px;
+      height: 360px;
+      margin-bottom: 30px;
+    }
+
+    .top-card img {
+      width: 640px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .top-card-content {
+      padding: 30px;
+      color: black;
+      width: 636px;
+    }
+
+    .top-card-content h3 {
+      color: #ff7700;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .top-card-content h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 15px 0;
+      line-height: 1.2;
+    }
+
+    .top-card-content p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .author-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: gray;
+      margin-right: 10px;
+    }
+
+    .bottom-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .popular-card {
+      background: black;
+      border-radius: 12px;
+      padding: 24px 20px;
+      color: white;
+      border: 2px solid;
+      border-image: linear-gradient(to bottom right, #ff0055, #00f2fe) 1;
+      width: 200px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+
+    .popular-card h2 {
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 60px;
+    }
+
+    .popular-card p {
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      height: 240px;
+      width: 1060px;
+      padding-bottom: 10px;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+
+    .card {
+      width: 220px;
+      height: 100%;
+      background: linear-gradient(to bottom right, #2a2a2a, #1a1a1a);
+      border-radius: 12px;
+      padding: 16px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .card small {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .tags {
+      font-size: 11px;
+      color: orange;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #eee;
+      margin-bottom: 10px;
+    }
+
+    .author-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .author-detail img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    .author-detail span {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Section -->
+    <div class="top-card">
+      <img src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/05/nodes-pattern.png?resize=1000%2C500&ssl=1" alt="Article Image">
+      <div class="top-card-content">
+        <h3>API &nbsp; THIRD-PARTY</h3>
+        <h1>Keeping Article Demos Alive When Third-Party APIs Die</h1>
+        <p>Is there a way to build demos that do not break when the services they rely on fail? How can we ensure educational demos stay available for as long as possible?</p>
+        <div class="author">
+          <div class="author-img"></div>
+          <span>Mészáros Róbert on Jul 30, 2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Scroll Section -->
+    <div class="bottom-section">
+      <!-- Popular -->
+      <div class="popular-card">
+        <h2>Popular this month</h2>
+        <p>Powered by <br><strong>DigitalOcean</strong></p>
+      </div>
+
+      <!-- Scrollable Article Cards -->
+      <div class="scroll-container">
+        <div class="card">
+          <small>Article on Jun 27, 2025</small>
+          <div class="tags">ART · BLOBS · CSS SHAPES</div>
+          <h4>CSS Blob Recipes</h4>
+          <p>Learn to create organic, animated blobs using CSS and SVG.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Author">
+            <span>Juan Diego Rodriguez</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <small>Article on Jun 26, 2025</small>
+          <div class="tags">CSS FUNCTIONS</div>
+          <h4>Poking at the CSS if() Function</h4>
+          <p>Discover how to apply conditional logic directly in CSS.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Author">
+            <span>Daniel Schwarz</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <small>Article on Jun 20, 2025</small>
+          <div class="tags">COLOR · CSS FUNCTIONS</div>
+          <h4>Color Everything</h4>
+          <p>Master dynamic color theming across components.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Author">
+            <span>Juan Diego Rodriguez</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <small>Article on Jun 3, 2025</small>
+          <div class="tags">DIALOG</div>
+          <h4>Getting Creative With HTML Dialog</h4>
+          <p>Use native dialog elements to build interactive UIs.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Author">
+            <span>Andy Clarke</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <small>Article on Jun 12, 2025</small>
+          <div class="tags">CSS GAMES · SASS</div>
+          <h4>Building a Tangram Puzzle With CSS</h4>
+          <p>Combine shapes and SASS to make a tangram puzzle.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Author">
+            <span>Sladjana Stojanovic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <small>Article on Jul 2, 2025</small>
+          <div class="tags">LAYOUT · GRID</div>
+          <h4>Advanced CSS Grid Tricks</h4>
+          <p>Level up your grid layouts with auto-fit and auto-fill.</p>
+          <div class="author-detail">
+            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Author">
+            <span>Markus Fenner</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
